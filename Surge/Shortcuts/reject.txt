@@ -56,6 +56,7 @@
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule - reject
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo - reject
 ^https?:\/\/c\.tieba\.baidu\.com\/\w+\/\w+\/(sync|newRnSync|mlog) - reject
+^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/\w+\/\w+\/(sync|newRnSync|mlog) - reject
 # > Baidu Map - newclient.map.baidu.com
 ^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads - reject
 # > Baidu InputMethod - mime.baidu.com
@@ -237,6 +238,8 @@
 # L
 # > LaiFeng
 ^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads - reject
+# > Lenovo - api.club.lenovo.cn
+^https?:\/\/api\.club\.lenovo\.cn\/common\/open_ad - reject
 
 # M
 # > MI - api.jr.mi.com,api-mifit*.huami.com
@@ -297,9 +300,8 @@
 # P
 # > PiaoGen - pss.txffp.com
 ^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ - reject
-# > Pinduoduo - api.yangkeduo.com
-^https?:\/\/api\.yangkeduo\.com\/api\/cappuccino\/splash - reject
-^https?:\/\/t00img\.yangkeduo\.com\/goods\/[\d-]+\/[A-Za-z0-9]+\.jpeg\?imageView2\/format\/webp$ - reject
+# > Pinduoduo - api.yangkeduo.com,api.pinduoduo.com
+^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash - reject
 # > PeanutWiFi
 ^https?:\/\/cmsapi\.wifi8\.com\/v\d\/(emptyAd|adNew)\/ - reject
 # > PConline - mrobot.pconline.com.cn,mrobot.pcauto.com.cn
@@ -330,9 +332,9 @@
 
 # S
 # ---(Sina)---
-# > Weibo - *.uve.weibo.com,weibointl.api.weibo.cn,api.weibo.cn, mapi.weibo.com
-# ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(actionad|sdkad)\.php - reject
-# ^https?:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua - reject
+# > Weibo - *.uve.weibo.com,weibointl.api.weibo.cn
+^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(actionad|sdkad)\.php - reject
+^https?:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua - reject
 ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_coopen_ads - reject
 # > tianqitong - tqt.weibo.cn
 ^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=(tqt_sdkad|tqtad) - reject
@@ -439,9 +441,10 @@
 # > Ximalaya FM
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/api\/v\d\/adRealTime - reject
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/(outadservice|ting\/preload)\/ - reject
-# > Xueqiu - api.xueqiu.com,promo.xueqiu.com,182.92.251.113
+# > Xueqiu - api.xueqiu.com,promo.xueqiu.com,182.92.251.113,101.201.175.228
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/promotion\/(display_cache|display_ad|feed_display|search_ad) - reject
 ^https?:\/\/(api|promo)\.xueqiu\.com\/promotion\/(display_cache|display_ad|feed_display|search_ad) - reject
+^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/brand\/search\/v1\.json - reject
 # > Xiaohongshu - www.xiaohongshu.com
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config - reject
 
@@ -458,11 +461,13 @@
 
 # Z
 # > Zhihu - api.zhihu.com
-^https?:\/\/api\.zhihu\.com\/commercial_api\/ - reject
-^https?:\/\/api\.zhihu\.com\/fringe\/ad - reject
-^https?:\/\/api\.zhihu\.com\/ad - reject
-^https?:\/\/api\.zhihu\.com\/appview\/api\/v\d\/answers\/\d+\/recommendations - reject
-^https?:\/\/api\.zhihu\.com\/\w+\/\d+\/comments\/featured-comment-ad - reject
+# ^https?:\/\/api\.zhihu\.com\/commercial_api\/ - reject
+# ^https?:\/\/api\.zhihu\.com\/fringe\/ad - reject
+# ^https?:\/\/api\.zhihu\.com\/ad - reject
+# ^https?:\/\/api\.zhihu\.com\/appview\/api\/v\d\/answers\/\d+\/recommendations - reject
+# ^https?:\/\/api\.zhihu\.com\/\w+\/\d+\/comments\/featured-comment-ad - reject
+^https?:\/\/api\.zhihu\.com\/(notifications\/v3\/count|v3\/package|me\/guides|drama\/living-info|ad|fringe|commercial|market\/popovers|search\/(top|tab)|.*featured-comment-ad|appview\/api\/v\d\/answers\/\d+\/recommendations) - reject
+^https?:\/\/www\.zhihu\.com\/appview\/(p|v2\/answer|zvideo)\/.*entry=(preload-topstory|preload-search|preload-subscription) - reject
 # > zhibo8 - a.qiumibao.com
 ^https?:\/\/a\.qiumibao\.com\/activities\/config\.php - reject
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d):\d+\/allOne\.php\?ad_name - reject
